@@ -1,7 +1,9 @@
 name: teno_datetime
 description: Extensions for DateTime for convenience
 version: 1.0.0
-# repository: https://github.com/hnvcam/teno_datetime
+authors:
+  - Cam Hoang
+repository: https://github.com/hnvcam/teno_datetime
 
 environment:
   sdk: ^3.1.5
