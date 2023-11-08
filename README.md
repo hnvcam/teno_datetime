@@ -1,6 +1,9 @@
 A set of extensions for DateTime for convenience usage.
 Inspired by Jiffy and MomentJS
 
+[![Coverage Status](https://codecov.io/gh/hnvcam/teno_datetime/branch/master/graph/badge.svg)](https://codecov.io/gh/hnvcam/teno_datetime)
+
+
 ## Features
 
 #### DateTime.timeAgo
