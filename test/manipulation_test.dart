@@ -1,4 +1,3 @@
-import 'package:teno_datetime/src/initialization.dart';
 import 'package:teno_datetime/teno_datetime.dart';
 import 'package:test/test.dart';
 
@@ -150,5 +149,140 @@ main() {
         expect(data.value.startOf(data.unit), data.expected);
       });
     }
+  });
+
+  group('endOf -- monday is start of week', () {
+    final testData = [
+      (
+        value: DateTime(2023, 11, 7, 22, 44, 55, 123, 789),
+        unit: Unit.microsecond,
+        expected: DateTime(2023, 11, 7, 22, 44, 55, 123, 789)
+      ),
+      (
+        value: DateTime(2023, 11, 7, 22, 44, 55, 123, 789),
+        unit: Unit.millisecond,
+        expected: DateTime(2023, 11, 7, 22, 44, 55, 123, 999)
+      ),
+      (
+        value: DateTime(2023, 11, 7, 22, 44, 55, 123, 789),
+        unit: Unit.second,
+        expected: DateTime(2023, 11, 7, 22, 44, 55, 999, 999)
+      ),
+      (
+        value: DateTime(2023, 11, 7, 22, 44, 55, 123, 789),
+        unit: Unit.minute,
+        expected: DateTime(2023, 11, 7, 22, 44, 59, 999, 999)
+      ),
+      (
+        value: DateTime(2023, 11, 7, 22, 44, 55, 123, 789),
+        unit: Unit.hour,
+        expected: DateTime(2023, 11, 7, 22, 59, 59, 999, 999)
+      ),
+      (
+        value: DateTime(2023, 11, 7, 22, 44, 55, 123, 789),
+        unit: Unit.day,
+        expected: DateTime(2023, 11, 7, 23, 59, 59, 999, 999)
+      ),
+      (
+        value: DateTime(2023, 11, 7, 22, 44, 55, 123, 789),
+        unit: Unit.week,
+        expected: DateTime(2023, 11, 12, 23, 59, 59, 999, 999)
+      ),
+      (
+        value: DateTime(2023, 10, 30, 22, 44, 55, 123, 789),
+        unit: Unit.week,
+        expected: DateTime(2023, 11, 5, 23, 59, 59, 999, 999)
+      ),
+      (
+        value: DateTime(2023, 11, 5, 22, 44, 55, 123, 789),
+        unit: Unit.week,
+        expected: DateTime(2023, 11, 5, 23, 59, 59, 999, 999)
+      ),
+    ];
+
+    setUpAll(() {
+      firstDayOfWeek = DateTime.monday;
+    });
+
+    for (var data in testData) {
+      test('End of ${data.unit} of ${data.value}', () {
+        expect(data.value.endOf(data.unit), data.expected);
+      });
+    }
+  });
+
+  group('endOf -- sunday is start of week', () {
+    final testData = [
+      (
+        value: DateTime(2023, 11, 7, 22, 44, 55, 123, 789),
+        unit: Unit.microsecond,
+        expected: DateTime(2023, 11, 7, 22, 44, 55, 123, 789)
+      ),
+      (
+        value: DateTime(2023, 11, 7, 22, 44, 55, 123, 789),
+        unit: Unit.millisecond,
+        expected: DateTime(2023, 11, 7, 22, 44, 55, 123, 999)
+      ),
+      (
+        value: DateTime(2023, 11, 7, 22, 44, 55, 123, 789),
+        unit: Unit.second,
+        expected: DateTime(2023, 11, 7, 22, 44, 55, 999, 999)
+      ),
+      (
+        value: DateTime(2023, 11, 7, 22, 44, 55, 123, 789),
+        unit: Unit.minute,
+        expected: DateTime(2023, 11, 7, 22, 44, 59, 999, 999)
+      ),
+      (
+        value: DateTime(2023, 11, 7, 22, 44, 55, 123, 789),
+        unit: Unit.hour,
+        expected: DateTime(2023, 11, 7, 22, 59, 59, 999, 999)
+      ),
+      (
+        value: DateTime(2023, 11, 7, 22, 44, 55, 123, 789),
+        unit: Unit.day,
+        expected: DateTime(2023, 11, 7, 23, 59, 59, 999, 999)
+      ),
+      (
+        value: DateTime(2023, 11, 7, 22, 44, 55),
+        unit: Unit.week,
+        expected: DateTime(2023, 11, 11, 23, 59, 59, 999, 999)
+      ),
+      (
+        value: DateTime(2023, 10, 30, 22, 44, 55),
+        unit: Unit.week,
+        expected: DateTime(2023, 11, 04, 23, 59, 59, 999, 999)
+      ),
+      (
+        value: DateTime(2023, 11, 4, 22, 44, 55),
+        unit: Unit.week,
+        expected: DateTime(2023, 11, 4, 23, 59, 59, 999, 999)
+      ),
+    ];
+
+    setUpAll(() {
+      firstDayOfWeek = DateTime.sunday;
+    });
+
+    for (var data in testData) {
+      test('End of ${data.unit} of ${data.value}', () {
+        expect(data.value.endOf(data.unit), data.expected);
+      });
+    }
+  });
+
+  group('addUnit', () {
+    final time = DateTime(2023, 10, 30, 10, 34, 5, 123, 768);
+    test('Adding for 1 second is correct', () {
+      expect(time.addUnit(seconds: 1).difference(time), Duration(seconds: 1));
+    });
+    test('Adding for 1 days 2 minutes is correct', () {
+      expect(time.addUnit(days: 1, minutes: 2).difference(time),
+          Duration(days: 1, minutes: 2));
+    });
+    test('Adding for 1 week 2 microseconds is correct', () {
+      expect(time.addUnit(weeks: 1, microseconds: 2).difference(time),
+          Duration(days: 7, microseconds: 2));
+    });
   });
 }

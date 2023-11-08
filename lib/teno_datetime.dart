@@ -6,6 +6,7 @@ library;
 export 'src/constants.dart';
 export 'src/display.dart';
 export 'src/get_set.dart';
+export 'src/initialization.dart';
 export 'src/manipulation.dart';
 export 'src/query.dart';
 

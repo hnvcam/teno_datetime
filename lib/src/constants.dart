@@ -1,3 +1,4 @@
+/// Supported unit on [manipulation] and [get_set]
 enum Unit {
   microsecond,
   millisecond,
@@ -10,6 +11,9 @@ enum Unit {
   year
 }
 
+/// This map contains number of days of a specific month in general. For leap year, DateTime.february
+/// will have 29 days and must be calculated manually
+/// See: [isLeapYear]
 const genericMonthDayCount = {
   DateTime.january: 31,
   DateTime.february: 28,

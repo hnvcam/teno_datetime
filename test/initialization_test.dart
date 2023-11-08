@@ -1,4 +1,4 @@
-import 'package:teno_datetime/src/initialization.dart';
+import 'package:teno_datetime/teno_datetime.dart';
 import 'package:test/test.dart';
 
 main() {

@@ -1,7 +1,7 @@
 name: teno_datetime
-description: A starting point for Dart libraries or applications.
+description: Extensions for DateTime for convenience
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+# repository: https://github.com/hnvcam/teno_datetime
 
 environment:
   sdk: ^3.1.5
@@ -9,7 +9,6 @@ environment:
 # Add regular dependencies here.
 dependencies:
   intl: ^0.18.1
-  # path: ^1.8.0
 
 dev_dependencies:
   lints: ^2.0.0

@@ -4,6 +4,9 @@ import 'package:intl/intl.dart';
 
 int _firstDayOfWeek = DateTime.monday;
 
+/// This is to make sure that the switched locale is fully initialized and
+/// correct firstDayOfWeek is set correctly.
+/// to override the locale firstDayOfWeek, consider using setter of [firstDayOfWeek]
 void ensureLocaleInit(String? locale) {
   Intl.defaultLocale = locale ?? Intl.systemLocale;
   initializeDateFormatting();
@@ -19,10 +22,14 @@ void ensureLocaleInit(String? locale) {
   _firstDayOfWeek = dateSymbol.FIRSTDAYOFWEEK + 1;
 }
 
+/// Get current configured first day of week
+/// If [ensureLocaleInit] is not called before this, then it always return [DateTime.monday]
 int get firstDayOfWeek {
   return _firstDayOfWeek;
 }
 
+/// Override the locale based first day of week
+/// The accepted values are from [DateTime.monday] to [DateTime.sunday]
 set firstDayOfWeek(int day) {
   assert(day >= DateTime.monday && day <= DateTime.sunday);
   _firstDayOfWeek = day;

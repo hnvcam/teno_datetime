@@ -1,5 +1,4 @@
-import 'package:teno_datetime/src/constants.dart';
-import 'package:teno_datetime/src/get_set.dart';
+import 'package:teno_datetime/teno_datetime.dart';
 import 'package:test/test.dart';
 
 main() {
