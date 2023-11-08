@@ -181,4 +181,38 @@ main() {
       });
     }
   });
+
+  test("isSameOrBeforeUnit", () {
+    final time = DateTime(2023, 11, 08, 20, 10, 20, 123, 789);
+    expect(
+        time.isSameOrBeforeUnit(DateTime(2023, 11, 08), unit: Unit.day), true);
+  });
+
+  test("isSameOrAfterUnit", () {
+    final time = DateTime(2023, 11, 08, 20, 10, 20, 123, 789);
+    expect(
+        time.isSameOrAfterUnit(DateTime(2023, 11, 08), unit: Unit.day), true);
+  });
+
+  test("isInRange", () {
+    final time = DateTime(2023, 11, 08, 20, 10, 20, 123, 789);
+    expect(time.isInRange(DateTime(2023, 11, 08), DateTime(2023, 11, 08, 19)),
+        false);
+    expect(
+        time.isInRange(DateTime(2023, 11, 08), DateTime(2023, 11, 08, 19),
+            unit: Unit.day),
+        true);
+  });
+
+  test("isInRangeExclusive", () {
+    final time = DateTime(2023, 11, 08, 20, 10, 20, 123, 789);
+    expect(
+        time.isInRangeExclusive(
+            DateTime(2023, 11, 08), DateTime(2023, 11, 08, 21)),
+        true);
+    expect(
+        time.isInRangeExclusive(time, DateTime(2023, 11, 08, 21),
+            unit: Unit.day),
+        false);
+  });
 }

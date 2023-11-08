@@ -41,4 +41,26 @@ extension IsSame on DateTime {
     return thisStartOf.microsecondsSinceEpoch >
         otherStartOf.microsecondsSinceEpoch;
   }
+
+  bool isSameOrBeforeUnit(DateTime other, {Unit unit = Unit.microsecond}) {
+    return isSameUnit(other, unit: unit) || isBeforeUnit(other, unit: unit);
+  }
+
+  bool isSameOrAfterUnit(DateTime other, {Unit unit = Unit.microsecond}) {
+    return isSameUnit(other, unit: unit) || isAfterUnit(other, unit: unit);
+  }
+}
+
+extension QueryRange on DateTime {
+  /// Check if the value is in a range, inclusively.
+  bool isInRange(DateTime start, DateTime end, {Unit unit = Unit.microsecond}) {
+    return isSameOrAfterUnit(start, unit: unit) &&
+        isSameOrBeforeUnit(end, unit: unit);
+  }
+
+  /// Check if the value is in a range, exclusively
+  bool isInRangeExclusive(DateTime start, DateTime end,
+      {Unit unit = Unit.microsecond}) {
+    return isAfterUnit(start, unit: unit) && isBeforeUnit(end, unit: unit);
+  }
 }

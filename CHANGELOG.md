@@ -4,3 +4,6 @@
 
 ## 1.0.1
 - Add badges and improve pub points.
+
+## 1.0.3
+- Add more query: isSameOrAfterUnit, isSameOrBeforeUnit, isInRange, isInRangeExclusive

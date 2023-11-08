@@ -80,6 +80,26 @@ final a = DateTime(2023, 11, 08, 10, 23, 0, 0, 0);
 final b = DateTime(2023, 11, 08, 10, 23, 57, 12, 5);
 print(b.isAfterUnit(a, unit: Unit.minute));  // false
 ```
+#### DateTime.isSameOrBeforeUnit
+```dart
+final time = DateTime(2023, 11, 08, 20, 10, 20, 123, 789);
+print(time.isSameOrBeforeUnit(DateTime(2023, 11, 08), unit: Unit.day));    // true
+```
+#### DateTime.isSameOrAfterUnit
+```dart
+final time = DateTime(2023, 11, 08, 20, 10, 20, 123, 789);
+print(time.isSameOrAfterUnit(DateTime(2023, 11, 08), unit: Unit.day));    // true
+```
+#### DateTime.isInRange
+```dart
+final time = DateTime(2023, 11, 08, 20, 10, 20, 123, 789);
+print(time.isInRange(DateTime(2023, 11, 08), DateTime(2023, 11, 08, 19));  // false
+```
+#### DateTime.isInRangeExclusive
+```dart
+final time = DateTime(2023, 11, 08, 20, 10, 20, 123, 789);
+print(time.isInRangeExclusive(DateTime(2023, 11, 08), DateTime(2023, 11, 08, 21)); // true
+```
 
 ## Getting started
 
