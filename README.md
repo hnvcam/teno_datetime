@@ -2,7 +2,7 @@ A set of extensions for DateTime for convenience usage.
 Inspired by Jiffy and MomentJS
 
 [![Build Status](https://github.com/hnvcam/teno_datetime/actions/workflows/ci.yaml/badge.svg)](https://github/hnvcam/teno_datetime)
-[![Coverage Status](https://codecov.io/gh/hnvcam/teno_datetime/branch/master/graph/badge.svg)](https://codecov.io/gh/hnvcam/teno_datetime)
+[![codecov](https://codecov.io/gh/hnvcam/teno_datetime/graph/badge.svg?token=FCRWMFYD3O)](https://codecov.io/gh/hnvcam/teno_datetime)
 [![Pub Package](https://img.shields.io/pub/v/teno_datetime)](https://pub.dev/packages/teno_datetime)
 
 
