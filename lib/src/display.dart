@@ -6,7 +6,7 @@ extension FromNow on DateTime {
   /// For the future time, display with [timeIn]
   String get fromNow {
     final now = DateTime.now();
-    if (now.microsecondsSinceEpoch <= microsecondsSinceEpoch) {
+    if (now.microsecondsSinceEpoch > microsecondsSinceEpoch) {
       return timeAgo;
     } else {
       return timeIn;

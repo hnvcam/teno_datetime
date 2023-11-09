@@ -152,6 +152,18 @@ main() {
     }
   });
 
+  group('fromNow', () {
+    test('Time in past', () {
+      final time = DateTime.now().addUnit(hours: -1);
+      expect(time.fromNow, 'an hour ago');
+    });
+
+    test('Time in future', () {
+      final time = DateTime.now().addUnit(hours: 1, minutes: 1);
+      expect(time.fromNow, 'in an hour');
+    });
+  });
+
   group('format', () {
     final testData = [
       (
