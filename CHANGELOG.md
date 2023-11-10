@@ -1,3 +1,5 @@
+## 1.0.4
+- Add min,max functions
 ## 1.0.3
 - Fix fromNow
 ## 1.0.2

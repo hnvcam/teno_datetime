@@ -64,3 +64,23 @@ extension QueryRange on DateTime {
     return isAfterUnit(start, unit: unit) && isBeforeUnit(end, unit: unit);
   }
 }
+
+extension MinMax on DateTime {
+  /// Return this instance or other if this is after the other
+  /// Equivalent to min(this, other)
+  DateTime orAfterUnit(DateTime other, {Unit unit = Unit.microsecond}) {
+    if (isAfterUnit(other, unit: unit)) {
+      return other;
+    }
+    return this;
+  }
+
+  /// Return this instance or other if this is before the other
+  /// Equivalent to max(this, other)
+  DateTime orBeforeUnit(DateTime other, {Unit unit = Unit.microsecond}) {
+    if (isBeforeUnit(other, unit: unit)) {
+      return other;
+    }
+    return this;
+  }
+}

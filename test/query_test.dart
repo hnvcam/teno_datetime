@@ -215,4 +215,30 @@ main() {
             unit: Unit.day),
         false);
   });
+
+  group('MinMax', () {
+    test('Min value', () {
+      final a = DateTime(2023, 11, 10, 19, 49, 53, 123, 789);
+      final b = DateTime(2023, 11, 10, 19, 50, 0, 123, 789);
+      expect(a.orAfterUnit(a), a);
+      expect(a.orAfterUnit(a, unit: Unit.day), a);
+      expect(a.orAfterUnit(b), a);
+      expect(b.orAfterUnit(a), a);
+      expect(a.orAfterUnit(b, unit: Unit.minute), a);
+      expect(a.orAfterUnit(b, unit: Unit.day), a);
+      expect(b.orAfterUnit(a, unit: Unit.day), b);
+    });
+
+    test('Max value', () {
+      final a = DateTime(2023, 11, 10, 19, 49, 53, 123, 789);
+      final b = DateTime(2023, 11, 10, 19, 50, 0, 123, 789);
+      expect(a.orBeforeUnit(a), a);
+      expect(a.orBeforeUnit(a, unit: Unit.day), a);
+      expect(a.orBeforeUnit(b), b);
+      expect(b.orBeforeUnit(a), b);
+      expect(a.orBeforeUnit(b, unit: Unit.minute), b);
+      expect(a.orBeforeUnit(b, unit: Unit.day), a);
+      expect(b.orBeforeUnit(a, unit: Unit.day), b);
+    });
+  });
 }
