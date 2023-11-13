@@ -1,3 +1,5 @@
+## 1.0.6
+- Fix endOf month incorrect for leap years.
 ## 1.0.5
 - Allow to override weekStart on calling of startOf, endOf.
 ## 1.0.4

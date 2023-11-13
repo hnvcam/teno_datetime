@@ -116,7 +116,7 @@ extension StartOrEndOfTime on DateTime {
         }
       case Unit.month:
         int endDate = genericMonthDayCount[month]!;
-        if (isLeapYear) {
+        if (isLeapYear && month == 2) {
           endDate++;
         }
         return copyWith(

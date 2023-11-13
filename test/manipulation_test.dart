@@ -198,6 +198,36 @@ main() {
         unit: Unit.week,
         expected: DateTime(2023, 11, 5, 23, 59, 59, 999, 999)
       ),
+      (
+        value: DateTime(2023, 11, 5, 22, 44, 55, 123, 789),
+        unit: Unit.month,
+        expected: DateTime(2023, 11, 30, 23, 59, 59, 999, 999)
+      ),
+      (
+        value: DateTime(2023, 12, 5, 22, 44, 55, 123, 789),
+        unit: Unit.month,
+        expected: DateTime(2023, 12, 31, 23, 59, 59, 999, 999)
+      ),
+      (
+        value: DateTime(2023, 2, 5, 22, 44, 55, 123, 789),
+        unit: Unit.month,
+        expected: DateTime(2023, 2, 28, 23, 59, 59, 999, 999)
+      ),
+      (
+        value: DateTime(2024, 2, 5, 22, 44, 55, 123, 789),
+        unit: Unit.month,
+        expected: DateTime(2024, 2, 29, 23, 59, 59, 999, 999)
+      ),
+      (
+        value: DateTime(2024, 3, 5, 22, 44, 55, 123, 789),
+        unit: Unit.month,
+        expected: DateTime(2024, 3, 31, 23, 59, 59, 999, 999)
+      ),
+      (
+        value: DateTime(2024, 4, 5, 22, 44, 55, 123, 789),
+        unit: Unit.month,
+        expected: DateTime(2024, 4, 30, 23, 59, 59, 999, 999)
+      ),
     ];
 
     setUpAll(() {
