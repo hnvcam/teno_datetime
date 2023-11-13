@@ -47,6 +47,11 @@ Get the start of time instance of current DateTime
 final time = DateTime(2023, 11, 7, 22, 44, 55, 123, 789);
 print(time.startOf(Unit.week));   // 2023-11-06 00:00:00.000
 ```
+Override weekStart on call (by default it takes value of firstDayOfWeek)
+```dart
+final time = DateTime(2023, 11, 13, 10, 37, 05, 678, 123);
+print(time.startOf(Unit.week, DateTime.sunday)); // 2023-11-12 00:00:00.000
+```
 #### DateTime.endOf
 Get the end of time instance of current DateTime
 ```dart

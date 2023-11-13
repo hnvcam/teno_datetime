@@ -271,6 +271,34 @@ main() {
     }
   });
 
+  group('Override firstDayOfWeek on call', () {
+    setUpAll(() {
+      firstDayOfWeek = DateTime.monday;
+    });
+
+    test('StartOf - Week - override with same value', () {
+      final time = DateTime(2023, 11, 13, 10, 37, 05, 678, 123);
+      expect(time.startOf(Unit.week, DateTime.monday), DateTime(2023, 11, 13));
+    });
+
+    test('StartOf - Week - override with different value', () {
+      final time = DateTime(2023, 11, 13, 10, 37, 05, 678, 123);
+      expect(time.startOf(Unit.week, DateTime.sunday), DateTime(2023, 11, 12));
+    });
+
+    test('EndOf - Week - override with same value', () {
+      final time = DateTime(2023, 11, 13, 10, 37, 05, 678, 123);
+      expect(time.endOf(Unit.week, DateTime.monday),
+          DateTime(2023, 11, 19, 23, 59, 59, 999, 999));
+    });
+
+    test('EndOf - Week - override with different value', () {
+      final time = DateTime(2023, 11, 13, 10, 37, 05, 678, 123);
+      expect(time.endOf(Unit.week, DateTime.sunday),
+          DateTime(2023, 11, 18, 23, 59, 59, 999, 999));
+    });
+  });
+
   group('addUnit', () {
     final time = DateTime(2023, 10, 30, 10, 34, 5, 123, 768);
     test('Adding for 1 second is correct', () {

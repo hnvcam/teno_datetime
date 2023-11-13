@@ -10,10 +10,13 @@ extension Diff on DateTime {
   }
 }
 
-extension StartOf on DateTime {
+extension StartOrEndOfTime on DateTime {
   /// Find the start of time (for ex: [Unit.week])
-  /// For startOf([Unit.week]), it is calculated based on [firstDayOfWeek] value
-  DateTime startOf(Unit unit) {
+  /// For startOf([Unit.week]), it is calculated based on weekStart if provided
+  /// otherwise [firstDayOfWeek] value
+  DateTime startOf(Unit unit, [int? weekStart]) {
+    assert(weekStart == null || unit == Unit.week,
+        'weekStart does not affect on $unit');
     switch (unit) {
       case Unit.millisecond:
         return copyWith(microsecond: 0);
@@ -27,14 +30,15 @@ extension StartOf on DateTime {
         return copyWith(
             microsecond: 0, millisecond: 0, second: 0, minute: 0, hour: 0);
       case Unit.week:
-        if (weekday >= firstDayOfWeek) {
+        final effectiveWeekStart = weekStart ?? firstDayOfWeek;
+        if (weekday >= effectiveWeekStart) {
           return copyWith(
               microsecond: 0,
               millisecond: 0,
               second: 0,
               minute: 0,
               hour: 0,
-              day: day - weekday + firstDayOfWeek);
+              day: day - weekday + effectiveWeekStart);
         } else {
           return copyWith(
               microsecond: 0,
@@ -42,7 +46,7 @@ extension StartOf on DateTime {
               second: 0,
               minute: 0,
               hour: 0,
-              day: day - 7 - weekday + firstDayOfWeek);
+              day: day - 7 - weekday + effectiveWeekStart);
         }
       case Unit.month:
         return copyWith(
@@ -65,14 +69,14 @@ extension StartOf on DateTime {
         return this;
     }
   }
-}
 
-extension EndOf on DateTime {
   /// Find the end of time (for ex: [Unit.week])
-  /// For endOf([Unit.week]), it is calculated based on [firstDayOfWeek] value
+  /// For endOf([Unit.week]), it is calculated based on weekStart if provided, otherwise [firstDayOfWeek] value
   /// For endOf([Unit.month]), it does cover for leap year, for ex: 29 of [DateTime.february] of leap year.
   /// Reference: [isLeapYear]
-  DateTime endOf(Unit unit) {
+  DateTime endOf(Unit unit, [int? weekStart]) {
+    assert(weekStart == null || unit == Unit.week,
+        'weekStart does not affect on $unit');
     switch (unit) {
       case Unit.millisecond:
         return copyWith(microsecond: 999);
@@ -91,9 +95,11 @@ extension EndOf on DateTime {
             minute: 59,
             hour: 23);
       case Unit.week:
-        if (weekday >= firstDayOfWeek) {
+        final effectiveWeekStart = weekStart ?? firstDayOfWeek;
+        if (weekday >= effectiveWeekStart) {
           return add(Duration(
-                  days: DateTime.daysPerWeek - weekday + firstDayOfWeek - 1))
+                  days:
+                      DateTime.daysPerWeek - weekday + effectiveWeekStart - 1))
               .copyWith(
                   microsecond: 999,
                   millisecond: 999,
@@ -101,7 +107,7 @@ extension EndOf on DateTime {
                   minute: 59,
                   hour: 23);
         } else {
-          return add(Duration(days: firstDayOfWeek - weekday - 1)).copyWith(
+          return add(Duration(days: effectiveWeekStart - weekday - 1)).copyWith(
               microsecond: 999,
               millisecond: 999,
               second: 59,
