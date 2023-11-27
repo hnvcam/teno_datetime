@@ -1,6 +1,6 @@
 {
   "@@locale": "en",
-  "@@last_modified": "2023-11-27T14:14:45.697151",
+  "@@last_modified": "2023-11-27T21:15:17.732210",
   "justNow": "just now",
   "@justNow": {
     "type": "text",
@@ -22,6 +22,13 @@
   },
   "daysAgo": "{amount,plural, =1{a day ago}other{{amount} days ago}}",
   "@daysAgo": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "weeksAgo": "{amount,plural, =1{a week ago}other{{amount} weeks ago}}",
+  "@weeksAgo": {
     "type": "text",
     "placeholders": {
       "amount": {}
@@ -67,6 +74,13 @@
       "amount": {}
     }
   },
+  "inWeeks": "{amount,plural, =1{in a week}other{in {amount} weeks}}",
+  "@inWeeks": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
   "inMonths": "{amount,plural, =1{in a month}other{in {amount} months}}",
   "@inMonths": {
     "type": "text",
@@ -81,6 +95,55 @@
   },
   "inYears": "{amount,plural, =1{in a year}other{in {amount} years}}",
   "@inYears": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "secondString": "{amount,plural, =0{zero seconds}=1{one second}other{{amount} seconds}}",
+  "@secondString": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "minuteString": "{amount,plural, =0{zero minutes}=1{one minute}other{{amount} minutes}}",
+  "@minuteString": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "hourString": "{amount,plural, =0{zero hours}=1{one hour}other{{amount} hours}}",
+  "@hourString": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "dayString": "{amount,plural, =0{zero days}=1{a day}other{{amount} days}}",
+  "@dayString": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "weekString": "{amount,plural, =0{zero weeks}=1{a week}other{{amount} weeks}}",
+  "@weekString": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "monthString": "{amount,plural, =0{zero month}=1{a month}other{{amount} months}}",
+  "@monthString": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "yearString": "{amount,plural, =0{zero years}=1{a year}other{{amount} years}}",
+  "@yearString": {
     "type": "text",
     "placeholders": {
       "amount": {}

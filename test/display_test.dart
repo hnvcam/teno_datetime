@@ -189,4 +189,107 @@ main() {
       });
     }
   });
+
+  group('toDurationString', () {
+    final testData = [
+      (
+        duration: Duration(seconds: 0),
+        unit: Unit.second,
+        expected: 'zero seconds'
+      ),
+      (
+        duration: Duration(seconds: 1),
+        unit: Unit.second,
+        expected: 'one second'
+      ),
+      (
+        duration: Duration(seconds: 5),
+        unit: Unit.second,
+        expected: '5 seconds'
+      ),
+      (
+        duration: Duration(seconds: 0),
+        unit: Unit.minute,
+        expected: 'zero minutes'
+      ),
+      (
+        duration: Duration(seconds: 15),
+        unit: Unit.minute,
+        expected: 'zero minutes'
+      ),
+      (
+        duration: Duration(seconds: 30),
+        unit: Unit.minute,
+        expected: 'one minute'
+      ),
+      (
+        duration: Duration(seconds: 60),
+        unit: Unit.minute,
+        expected: 'one minute'
+      ),
+      (
+        duration: Duration(seconds: 90),
+        unit: Unit.minute,
+        expected: '2 minutes'
+      ),
+      (
+        duration: Duration(seconds: 350),
+        unit: Unit.minute,
+        expected: '6 minutes'
+      ),
+      (
+        duration: Duration(minutes: 0),
+        unit: Unit.minute,
+        expected: 'zero minutes'
+      ),
+      (
+        duration: Duration(minutes: 1),
+        unit: Unit.minute,
+        expected: 'one minute'
+      ),
+      (
+        duration: Duration(minutes: 15),
+        unit: Unit.minute,
+        expected: '15 minutes'
+      ),
+      (
+        duration: Duration(minutes: 15),
+        unit: Unit.hour,
+        expected: 'zero hours'
+      ),
+      (duration: Duration(minutes: 60), unit: Unit.hour, expected: 'one hour'),
+      (duration: Duration(minutes: 99), unit: Unit.hour, expected: '2 hours'),
+      (duration: Duration(hours: 0), unit: Unit.hour, expected: 'zero hours'),
+      (duration: Duration(hours: 1), unit: Unit.hour, expected: 'one hour'),
+      (duration: Duration(hours: 12), unit: Unit.day, expected: 'a day'),
+      (duration: Duration(hours: 24), unit: Unit.day, expected: 'a day'),
+      (duration: Duration(hours: 32), unit: Unit.day, expected: 'a day'),
+      (duration: Duration(days: 0), unit: Unit.day, expected: 'zero days'),
+      (duration: Duration(days: 1), unit: Unit.day, expected: 'a day'),
+      (duration: Duration(days: 10), unit: Unit.day, expected: '10 days'),
+      (duration: Duration(days: 3), unit: Unit.week, expected: 'zero weeks'),
+      (duration: Duration(days: 4), unit: Unit.week, expected: 'a week'),
+      (duration: Duration(days: 30), unit: Unit.month, expected: 'a month'),
+      (duration: Duration(days: 366), unit: Unit.year, expected: 'a year'),
+      (duration: Duration(seconds: 0), unit: null, expected: 'zero seconds'),
+      (duration: Duration(seconds: 100), unit: null, expected: '2 minutes'),
+      (duration: Duration(minutes: 4), unit: null, expected: '4 minutes'),
+      (duration: Duration(minutes: 64), unit: null, expected: 'one hour'),
+      (duration: Duration(days: 4), unit: null, expected: '4 days'),
+      (duration: Duration(days: 29), unit: null, expected: '4 weeks'),
+      (duration: Duration(days: 60), unit: null, expected: '2 months'),
+      (duration: Duration(days: 10), unit: null, expected: 'a week'),
+      (duration: Duration(days: 100), unit: null, expected: '3 months'),
+      (duration: Duration(days: 365), unit: null, expected: 'a year'),
+      (duration: Duration(days: 600), unit: null, expected: '2 years'),
+    ];
+
+    for (var data in testData) {
+      test(
+          '${data.duration} toDurationString(${data.unit}) => ${data.expected}',
+          () {
+        expect(data.duration.toDurationString(data.unit), data.expected);
+      });
+    }
+  });
 }

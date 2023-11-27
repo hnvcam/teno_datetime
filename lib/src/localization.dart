@@ -25,6 +25,12 @@ class Localization {
       name: 'daysAgo',
       args: [amount]);
 
+  String weeksAgo(int amount) => Intl.plural(amount,
+      one: 'a week ago',
+      other: '$amount weeks ago',
+      name: 'weeksAgo',
+      args: [amount]);
+
   String monthsAgo(int amount) => Intl.plural(amount,
       one: 'a month ago',
       other: '$amount months ago',
@@ -58,6 +64,12 @@ class Localization {
       name: 'inDays',
       args: [amount]);
 
+  String inWeeks(int amount) => Intl.plural(amount,
+      one: 'in a week',
+      other: 'in $amount weeks',
+      name: 'inWeeks',
+      args: [amount]);
+
   String inMonths(int amount) => Intl.plural(amount,
       one: 'in a month',
       other: 'in $amount months',
@@ -70,5 +82,54 @@ class Localization {
       one: 'in a year',
       other: 'in $amount years',
       name: 'inYears',
+      args: [amount]);
+
+  String secondString(int amount) => Intl.plural(amount,
+      zero: 'zero seconds',
+      one: 'one second',
+      other: '$amount seconds',
+      name: 'secondString',
+      args: [amount]);
+
+  String minuteString(int amount) => Intl.plural(amount,
+      zero: 'zero minutes',
+      one: 'one minute',
+      other: '$amount minutes',
+      name: 'minuteString',
+      args: [amount]);
+
+  String hourString(int amount) => Intl.plural(amount,
+      zero: 'zero hours',
+      one: 'one hour',
+      other: '$amount hours',
+      name: 'hourString',
+      args: [amount]);
+
+  String dayString(int amount) => Intl.plural(amount,
+      zero: 'zero days',
+      one: 'a day',
+      other: '$amount days',
+      name: 'dayString',
+      args: [amount]);
+
+  String weekString(int amount) => Intl.plural(amount,
+      zero: 'zero weeks',
+      one: 'a week',
+      other: '$amount weeks',
+      name: 'weekString',
+      args: [amount]);
+
+  String monthString(int amount) => Intl.plural(amount,
+      zero: 'zero month',
+      one: 'a month',
+      other: '$amount months',
+      name: 'monthString',
+      args: [amount]);
+
+  String yearString(int amount) => Intl.plural(amount,
+      zero: 'zero years',
+      one: 'a year',
+      other: '$amount years',
+      name: 'yearString',
       args: [amount]);
 }

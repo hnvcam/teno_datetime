@@ -1,148 +1,148 @@
 {
-  "@@locale": "vi",
-  "@@last_modified": "2023-11-27T13:23:38.016893",
-  "justNow": "ngay bây giờ",
+  "@@locale": "pt",
+  "@@last_modified": "2023-11-27T21:15:17.732210",
+  "justNow": "agora mesmo",
   "@justNow": {
     "type": "text",
     "placeholders": {}
   },
-  "minutesAgo": "{amount,plural, =1{một phút trước}other{{amount} phút trước}}",
+  "minutesAgo": "{amount,plural, =1{há 1 minuto}other{há {amount} minutos}}",
   "@minutesAgo": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "hoursAgo": "{amount,plural, =1{một giờ trước}other{{amount} giờ trước}}",
+  "hoursAgo": "{amount,plural, =1{há 1 hora}other{há {amount} horas}}",
   "@hoursAgo": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "daysAgo": "{amount,plural, =1{một ngày trước}other{{amount} ngày trước}}",
+  "daysAgo": "{amount,plural, =1{há 1 dia}other{há {amount} dias}}",
   "@daysAgo": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "weeksAgo": "{amount,plural, =1{một tuần trước}other{{amount} tuần trước}}",
+  "weeksAgo": "{amount,plural, =1{há 1 semana}other{há {amount} semanas}}",
   "@weeksAgo": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "monthsAgo": "{amount,plural, =1{một tháng trước}other{{amount} tháng trước}}",
+  "monthsAgo": "{amount,plural, =1{há 1 mês}other{há {amount} meses}}",
   "@monthsAgo": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "yearsAgo": "{amount,plural, =1{một năm trước}other{{amount} năm trước}}",
+  "yearsAgo": "{amount,plural, =1{há 1 ano}other{há {amount} anos}}",
   "@yearsAgo": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "inLessThanAMinute": "sau ít hơn một phút",
+  "inLessThanAMinute": "em menos de um minuto",
   "@inLessThanAMinute": {
     "type": "text",
     "placeholders": {}
   },
-  "inMinutes": "{amount,plural, =1{sau 1 phút}other{sau {amount} phút}}",
+  "inMinutes": "{amount,plural, =1{em 1 minuto}other{em {amount} minutos}}",
   "@inMinutes": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "inHours": "{amount,plural, =1{sau một giờ}other{sau {amount} giờ}}",
+  "inHours": "{amount,plural, =1{em 1 hora}other{em {amount} horas}}",
   "@inHours": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "inDays": "{amount,plural, =1{trong ngày mai}other{sau {amount} ngày}}",
+  "inDays": "{amount,plural, =1{em 1 dia}other{em {amount} dias}}",
   "@inDays": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "inWeeks": "{amount,plural, =1{trong một tuần}other{sau {amount} tuần}}",
+  "inWeeks": "{amount,plural, =1{em 1 semana}other{em {amount} semanas}}",
   "@inWeeks": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "inMonths": "{amount,plural, =1{trong tháng sau}other{sau {amount} tháng}}",
+  "inMonths": "{amount,plural, =1{em 1 mês}other{em {amount} meses}}",
   "@inMonths": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "inAYear": "in a year",
+  "inAYear": "em 1 ano",
   "@inAYear": {
     "type": "text",
     "placeholders": {}
   },
-  "inYears": "{amount,plural, =1{sang năm}other{sau {amount} năm}}",
+  "inYears": "{amount,plural, =1{em 1 ano}other{em {amount} anos}}",
   "@inYears": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "secondString": "{amount,plural, =0{0 giây}=1{1 giây}other{{amount} giây}}",
+  "secondString": "{amount,plural, =0{0 segundos}=1{1 segundo}other{{amount} segundos}}",
   "@secondString": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "minuteString": "{amount,plural, =0{0 phút}=1{1 phút}other{{amount} phút}}",
+  "minuteString": "{amount,plural, =0{0 minutos}=1{1 minuto}other{{amount} minutos}}",
   "@minuteString": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "hourString": "{amount,plural, =0{0 giờ}=1{1 giờ}other{{amount} giờ}}",
+  "hourString": "{amount,plural, =0{0 horas}=1{1 hora}other{{amount} horas}}",
   "@hourString": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "dayString": "{amount,plural, =0{0 ngày}=1{1 ngày}other{{amount} ngày}}",
+  "dayString": "{amount,plural, =0{0 dias}=1{1 dia}other{{amount} dias}}",
   "@dayString": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "weekString": "{amount,plural, =0{0 tuần}=1{1 tuần}other{{amount} tuần}}",
+  "weekString": "{amount,plural, =0{0 semanas}=1{1 semana}other{{amount} semanas}}",
   "@weekString": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "monthString": "{amount,plural, =0{0 tháng}=1{1 tháng}other{{amount} tháng}}",
+  "monthString": "{amount,plural, =0{0 meses}=1{1 mês}other{{amount} meses}}",
   "@monthString": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "yearString": "{amount,plural, =0{0 năm}=1{1 năm}other{{amount} năm}}",
+  "yearString": "{amount,plural, =0{0 anos}=1{1 ano}other{{amount} anos}}",
   "@yearString": {
     "type": "text",
     "placeholders": {
