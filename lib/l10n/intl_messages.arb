@@ -1,0 +1,89 @@
+{
+  "@@locale": "en",
+  "@@last_modified": "2023-11-27T14:14:45.697151",
+  "justNow": "just now",
+  "@justNow": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "minutesAgo": "{amount,plural, =1{a minute ago}other{{amount} minutes ago}}",
+  "@minutesAgo": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "hoursAgo": "{amount,plural, =1{an hour ago}other{{amount} hours ago}}",
+  "@hoursAgo": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "daysAgo": "{amount,plural, =1{a day ago}other{{amount} days ago}}",
+  "@daysAgo": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "monthsAgo": "{amount,plural, =1{a month ago}other{{amount} months ago}}",
+  "@monthsAgo": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "yearsAgo": "{amount,plural, =1{a year ago}other{{amount} years ago}}",
+  "@yearsAgo": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "inLessThanAMinute": "in less than a minute",
+  "@inLessThanAMinute": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "inMinutes": "{amount,plural, =1{in a minute}other{in {amount} minutes}}",
+  "@inMinutes": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "inHours": "{amount,plural, =1{in an hour}other{in {amount} hours}}",
+  "@inHours": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "inDays": "{amount,plural, =1{in a day}other{in {amount} days}}",
+  "@inDays": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "inMonths": "{amount,plural, =1{in a month}other{in {amount} months}}",
+  "@inMonths": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "inAYear": "in a year",
+  "@inAYear": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "inYears": "{amount,plural, =1{in a year}other{in {amount} years}}",
+  "@inYears": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  }
+}

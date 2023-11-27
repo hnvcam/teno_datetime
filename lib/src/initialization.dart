@@ -1,15 +1,19 @@
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/date_symbols.dart';
 import 'package:intl/intl.dart';
+import 'package:teno_datetime/generated/messages_all.dart';
 
 int _firstDayOfWeek = DateTime.monday;
 
 /// This is to make sure that the switched locale is fully initialized and
 /// correct firstDayOfWeek is set correctly.
 /// to override the locale firstDayOfWeek, consider using setter of [firstDayOfWeek]
-void ensureLocaleInit(String? locale) {
+Future<void> ensureLocaleInit(String? locale) async {
   Intl.defaultLocale = locale ?? Intl.systemLocale;
-  initializeDateFormatting();
+  await initializeDateFormatting();
+  // Localization for datetime message
+  await initializeMessages(Intl.defaultLocale);
+
   final symbol = dateTimeSymbolMap()[Intl.defaultLocale];
 
   assert(symbol is DateSymbols);

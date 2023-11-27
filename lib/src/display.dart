@@ -1,4 +1,5 @@
 import 'package:intl/intl.dart';
+import 'package:teno_datetime/src/localization.dart';
 
 extension FromNow on DateTime {
   /// Display human readable format for a distance from now
@@ -21,47 +22,22 @@ extension FromNow on DateTime {
     assert(!difference.isNegative, 'timeAgo is used for past time');
 
     if (difference.inSeconds < 60) {
-      return Intl.message('just now', name: 'justNow');
+      return Localization.defaultInstance.justNow;
     } else if (difference.inMinutes < 60) {
       final amount = difference.inMinutes;
-      return Intl.plural(
-        amount,
-        one: 'a minute ago',
-        other: '$amount minutes ago',
-        name: 'minutesAgo',
-      );
+      return Localization.defaultInstance.minutesAgo(amount);
     } else if (difference.inHours < 24) {
       final amount = difference.inHours;
-      return Intl.plural(
-        amount,
-        one: 'an hour ago',
-        other: '$amount hours ago',
-        name: 'hoursAgo',
-      );
+      return Localization.defaultInstance.hoursAgo(amount);
     } else if (difference.inDays < 30) {
       final amount = difference.inDays;
-      return Intl.plural(
-        amount,
-        one: 'a day ago',
-        other: '$amount days ago',
-        name: 'daysAgo',
-      );
+      return Localization.defaultInstance.daysAgo(amount);
     } else if (difference.inDays < 365) {
-      final months = (difference.inDays / 30).floor();
-      return Intl.plural(
-        months,
-        one: 'a month ago',
-        other: '$months months ago',
-        name: 'monthsAgo',
-      );
+      final amount = (difference.inDays / 30).floor();
+      return Localization.defaultInstance.monthsAgo(amount);
     } else {
-      final years = (difference.inDays / 365).floor();
-      return Intl.plural(
-        years,
-        one: 'a year ago',
-        other: '$years years ago',
-        name: 'yearsAgo',
-      );
+      final amount = (difference.inDays / 365).floor();
+      return Localization.defaultInstance.yearsAgo(amount);
     }
   }
 
@@ -72,51 +48,26 @@ extension FromNow on DateTime {
     final difference = this.difference(now);
     assert(!difference.isNegative, 'timeIn is used for future time');
     if (difference.inSeconds < 60) {
-      return Intl.message('in less than a minute', name: 'inLessThanAMinute');
+      return Localization.defaultInstance.inLessThanAMinute;
     } else if (difference.inMinutes < 60) {
       final amount = difference.inMinutes;
-      return Intl.plural(
-        amount,
-        one: 'in a minute',
-        other: 'in $amount minutes',
-        name: 'inMinutes',
-      );
+      return Localization.defaultInstance.inMinutes(amount);
     } else if (difference.inHours < 24) {
       final amount = difference.inHours;
-      return Intl.plural(
-        amount,
-        one: 'in an hour',
-        other: 'in $amount hours',
-        name: 'inHours',
-      );
+      return Localization.defaultInstance.inHours(amount);
     } else if (difference.inDays < 30) {
       final amount = difference.inDays;
-      return Intl.plural(
-        amount,
-        one: 'in a day',
-        other: 'in $amount days',
-        name: 'inDays',
-      );
+      return Localization.defaultInstance.inDays(amount);
     } else if (difference.inDays < 365) {
-      final months = (difference.inDays / 30).floor();
+      final amount = (difference.inDays / 30).floor();
       // there will be always a gap between 360 to 365 days
-      if (months == 12) {
-        return Intl.message('in a year', name: 'inAYear');
+      if (amount == 12) {
+        return Localization.defaultInstance.inAYear;
       }
-      return Intl.plural(
-        months,
-        one: 'in a month',
-        other: 'in $months months',
-        name: 'inMonths',
-      );
+      return Localization.defaultInstance.inMonths(amount);
     } else {
-      final years = (difference.inDays / 365).floor();
-      return Intl.plural(
-        years,
-        one: 'in a year',
-        other: 'in $years years',
-        name: 'inYears',
-      );
+      final amount = (difference.inDays / 365).floor();
+      return Localization.defaultInstance.inYears(amount);
     }
   }
 }

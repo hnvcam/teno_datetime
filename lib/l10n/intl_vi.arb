@@ -1,0 +1,89 @@
+{
+  "@@locale": "vi",
+  "@@last_modified": "2023-11-27T13:23:38.016893",
+  "justNow": "ngay bây giờ",
+  "@justNow": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "minutesAgo": "{amount,plural, =1{một phút trước}other{{amount} phút trước}}",
+  "@minutesAgo": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "hoursAgo": "{amount,plural, =1{một giờ trước}other{{amount} giờ trước}}",
+  "@hoursAgo": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "daysAgo": "{amount,plural, =1{một ngày trước}other{{amount} ngày trước}}",
+  "@daysAgo": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "monthsAgo": "{amount,plural, =1{một tháng trước}other{{amount} tháng trước}}",
+  "@monthsAgo": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "yearsAgo": "{amount,plural, =1{một năm trước}other{{amount} năm trước}}",
+  "@yearsAgo": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "inLessThanAMinute": "sau ít hơn một phút",
+  "@inLessThanAMinute": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "inMinutes": "{amount,plural, =1{sau 1 phút}other{sau {amount} phút}}",
+  "@inMinutes": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "inHours": "{amount,plural, =1{sau một giờ}other{sau {amount} giờ}}",
+  "@inHours": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "inDays": "{amount,plural, =1{trong ngày mai}other{sau {amount} ngày}}",
+  "@inDays": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "inMonths": "{amount,plural, =1{trong tháng sau}other{sau {amount} tháng}}",
+  "@inMonths": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  },
+  "inAYear": "in a year",
+  "@inAYear": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "inYears": "{amount,plural, =1{sang năm}other{sau {amount} năm}}",
+  "@inYears": {
+    "type": "text",
+    "placeholders": {
+      "amount": {}
+    }
+  }
+}

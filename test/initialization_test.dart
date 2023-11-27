@@ -13,9 +13,24 @@ main() {
   ];
 
   for (var data in testData) {
-    test('First day of week was set correctly for ${data.locale}', () {
-      ensureLocaleInit(data.locale);
+    test('First day of week was set correctly for ${data.locale}', () async {
+      await ensureLocaleInit(data.locale);
       expect(firstDayOfWeek, data.firstDay);
     });
   }
+
+  test('timeAgo in Vietnamese', () async {
+    await ensureLocaleInit('vi');
+    expect(DateTime.now().timeAgo, 'ngay bây giờ');
+    await ensureLocaleInit('en');
+    expect(DateTime.now().timeAgo, 'just now');
+  });
+
+  test('timeIn in Vietnamese', () async {
+    await ensureLocaleInit('vi');
+    expect(
+        DateTime.now().addUnit(days: 1, seconds: 1).timeIn, 'trong ngày mai');
+    await ensureLocaleInit('en');
+    expect(DateTime.now().addUnit(days: 1, seconds: 1).timeIn, 'in a day');
+  });
 }
