@@ -1,5 +1,5 @@
 ## 1.0.7
-- Add Vietnamese support.
+- Add de, es, pt, vi support.
 ## 1.0.6
 - Fix endOf month incorrect for leap years.
 ## 1.0.5

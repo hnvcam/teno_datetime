@@ -113,6 +113,11 @@ Adding the library to your pubspec.yaml file:
 dart pub add teno_datetime
 ```
 
+To make sure that localization works correctly, make sure you call this after startup or changing language:
+```dart
+await ensureLocaleInit('es'); // replace with desired locale name or leave it empty to get value from Intl.systemLocale
+```
+
 
 ## Additional information
 Different from JS, Dart [DateTime] and [Duration] have provided many useful methods for working with.
