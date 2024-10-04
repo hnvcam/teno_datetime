@@ -1,6 +1,6 @@
 name: teno_datetime
 description: Extensions for DateTime for a more convenient way of using it. Inspired by Jiffy and MonentJS but no introducing new data type.
-version: 1.0.7
+version: 1.0.8
 repository: https://github.com/hnvcam/teno_datetime
 
 environment:
@@ -8,9 +8,9 @@ environment:
 
 # Add regular dependencies here.
 dependencies:
-  intl: ^0.18.1
+  intl: any
 
 dev_dependencies:
-  intl_translation: ^0.18.2
-  lints: ^2.0.0
+  intl_translation: any
+  lints: ^5.0.0
   test: ^1.24.9
