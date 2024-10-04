@@ -1,3 +1,5 @@
+## 1.0.8
+- Leave intl deps as any.
 ## 1.0.7
 - Add de, es, pt, vi support.
 ## 1.0.6
