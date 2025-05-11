@@ -22,7 +22,6 @@ extension DurationToUnit on Duration {
       case Unit.year:
         return inDays ~/ 365;
       case Unit.millisecond:
-      default:
         return inMilliseconds;
     }
   }

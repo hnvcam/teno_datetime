@@ -1,3 +1,5 @@
+## 1.0.9
+- Add French translations.
 ## 1.0.8
 - Leave intl deps as any.
 ## 1.0.7

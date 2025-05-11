@@ -1,148 +1,148 @@
 {
   "@@locale": "de",
   "@@last_modified": "2023-11-27T21:15:17.732210",
-  "justNow": "gerade jetzt",
+  "justNow": "gerade eben",
   "@justNow": {
     "type": "text",
     "placeholders": {}
   },
-  "minutesAgo": "{amount,plural, =1{vor 1 Minute}other{vor {amount} Minuten}}",
+  "minutesAgo": "{amount,plural, =1{vor einer Minute}other{vor {amount} Minuten}}",
   "@minutesAgo": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "hoursAgo": "{amount,plural, =1{vor 1 Stunde}other{vor {amount} Stunden}}",
+  "hoursAgo": "{amount,plural, =1{vor einer Stunde}other{vor {amount} Stunden}}",
   "@hoursAgo": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "daysAgo": "{amount,plural, =1{vor 1 Tag}other{vor {amount} Tagen}}",
+  "daysAgo": "{amount,plural, =1{vor einem Tag}other{vor {amount} Tagen}}",
   "@daysAgo": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "weeksAgo": "{amount,plural, =1{vor 1 Woche}other{vor {amount} Wochen}}",
+  "weeksAgo": "{amount,plural, =1{vor einer Woche}other{vor {amount} Wochen}}",
   "@weeksAgo": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "monthsAgo": "{amount,plural, =1{vor 1 Monat}other{vor {amount} Monaten}}",
+  "monthsAgo": "{amount,plural, =1{vor einem Monat}other{vor {amount} Monaten}}",
   "@monthsAgo": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "yearsAgo": "{amount,plural, =1{vor 1 Jahr}other{vor {amount} Jahren}}",
+  "yearsAgo": "{amount,plural, =1{vor einem Jahr}other{vor {amount} Jahren}}",
   "@yearsAgo": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "inLessThanAMinute": "In weniger als einer Minute",
+  "inLessThanAMinute": "in weniger als einer Minute",
   "@inLessThanAMinute": {
     "type": "text",
     "placeholders": {}
   },
-  "inMinutes": "{amount,plural, =1{in 1 Minute}other{in {amount} Minuten}}",
+  "inMinutes": "{amount,plural, =1{in einer Minute}other{in {amount} Minuten}}",
   "@inMinutes": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "inHours": "{amount,plural, =1{in 1 Stunde}other{in {amount} Stunden}}",
+  "inHours": "{amount,plural, =1{in einer Stunde}other{in {amount} Stunden}}",
   "@inHours": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "inDays": "{amount,plural, =1{in 1 Tag}other{in {amount} Tagen}}",
+  "inDays": "{amount,plural, =1{in einem Tag}other{in {amount} Tagen}}",
   "@inDays": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "inWeeks": "{amount,plural, =1{in 1 Woche}other{in {amount} Wochen}}",
+  "inWeeks": "{amount,plural, =1{in einer Woche}other{in {amount} Wochen}}",
   "@inWeeks": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "inMonths": "{amount,plural, =1{in 1 Monat}other{in {amount} Monaten}}",
+  "inMonths": "{amount,plural, =1{in einem Monat}other{in {amount} Monaten}}",
   "@inMonths": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "inAYear": "in 1 ano",
+  "inAYear": "in einem Jahr",
   "@inAYear": {
     "type": "text",
     "placeholders": {}
   },
-  "inYears": "{amount,plural, =1{in 1 Jahr}other{in {amount} Jahren}}",
+  "inYears": "{amount,plural, =1{in einem Jahr}other{in {amount} Jahren}}",
   "@inYears": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "secondString": "{amount,plural, =0{null Sekunden}=1{1 Sekunde}other{{amount} Sekunden}}",
+  "secondString": "{amount,plural, =0{null Sekunden}=1{eine Sekunde}other{{amount} Sekunden}}",
   "@secondString": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "minuteString": "{amount,plural, =0{null Minuten}=1{1 Minute}other{{amount} Minuten}}",
+  "minuteString": "{amount,plural, =0{null Minuten}=1{eine Minute}other{{amount} Minuten}}",
   "@minuteString": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "hourString": "{amount,plural, =0{null Stunden}=1{1 Stunde}other{{amount} Stunden}}",
+  "hourString": "{amount,plural, =0{null Stunden}=1{eine Stunde}other{{amount} Stunden}}",
   "@hourString": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "dayString": "{amount,plural, =0{null Tage}=1{1 Tag}other{{amount} Tage}}",
+  "dayString": "{amount,plural, =0{null Tagen}=1{ein Tag}other{{amount} Tagen}}",
   "@dayString": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "weekString": "{amount,plural, =0{null Wochen}=1{1 Woche}other{{amount} Wochen}}",
+  "weekString": "{amount,plural, =0{null Wochen}=1{eine Woche}other{{amount} Wochen}}",
   "@weekString": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "monthString": "{amount,plural, =0{null Monate}=1{1 Monat}other{{amount} Monate}}",
+  "monthString": "{amount,plural, =0{null Monate}=1{ein Monat}other{{amount} Monaten}}",
   "@monthString": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "yearString": "{amount,plural, =0{null Jahre}=1{1 Jahr}other{{amount} Jahre}}",
+  "yearString": "{amount,plural, =0{null Jahren}=1{ein Jahr}other{{amount} Jahren}}",
   "@yearString": {
     "type": "text",
     "placeholders": {

@@ -1,148 +1,148 @@
 {
-  "@@locale": "es",
+  "@@locale": "fr",
   "@@last_modified": "2023-11-27T21:15:17.732210",
-  "justNow": "ahora mismo",
+  "justNow": "à l'instant",
   "@justNow": {
     "type": "text",
     "placeholders": {}
   },
-  "minutesAgo": "{amount,plural, =1{hace un minuto}other{hace {amount} minutos}}",
+  "minutesAgo": "{amount,plural, =1{il y a une minute}other{il y a {amount} minutes}}",
   "@minutesAgo": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "hoursAgo": "{amount,plural, =1{hace una hora}other{hace {amount} horas}}",
+  "hoursAgo": "{amount,plural, =1{il y a une heure}other{il y a {amount} heures}}",
   "@hoursAgo": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "daysAgo": "{amount,plural, =1{hace un día}other{hace {amount} días}}",
+  "daysAgo": "{amount,plural, =1{il y a un jour}other{il y a {amount} jours}}",
   "@daysAgo": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "weeksAgo": "{amount,plural, =1{hace una semana}other{hace {amount} semanas}}",
+  "weeksAgo": "{amount,plural, =1{il y a une semaine}other{il y a {amount} semaines}}",
   "@weeksAgo": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "monthsAgo": "{amount,plural, =1{hace un mes}other{hace {amount} meses}}",
+  "monthsAgo": "{amount,plural, =1{il y a un mois}other{il y a {amount} mois}}",
   "@monthsAgo": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "yearsAgo": "{amount,plural, =1{hace un año}other{hace {amount} años}}",
+  "yearsAgo": "{amount,plural, =1{il y a un an}other{il y a {amount} ans}}",
   "@yearsAgo": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "inLessThanAMinute": "en menos de un minuto",
+  "inLessThanAMinute": "dans moins d'une minute",
   "@inLessThanAMinute": {
     "type": "text",
     "placeholders": {}
   },
-  "inMinutes": "{amount,plural, =1{en un minuto}other{en {amount} minutos}}",
+  "inMinutes": "{amount,plural, =1{dans une minute}other{dans {amount} minutes}}",
   "@inMinutes": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "inHours": "{amount,plural, =1{en una hora}other{en {amount} horas}}",
+  "inHours": "{amount,plural, =1{dans une heure}other{dans {amount} heures}}",
   "@inHours": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "inDays": "{amount,plural, =1{en un día}other{en {amount} días}}",
+  "inDays": "{amount,plural, =1{dans un jour}other{dans {amount} jours}}",
   "@inDays": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "inWeeks": "{amount,plural, =1{en una semana}other{en {amount} semanas}}",
+  "inWeeks": "{amount,plural, =1{dans une semaine}other{dans {amount} semaines}}",
   "@inWeeks": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "inMonths": "{amount,plural, =1{en un mes}other{en {amount} meses}}",
+  "inMonths": "{amount,plural, =1{dans un mois}other{dans {amount} mois}}",
   "@inMonths": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "inAYear": "en un año",
+  "inAYear": "dans un an",
   "@inAYear": {
     "type": "text",
     "placeholders": {}
   },
-  "inYears": "{amount,plural, =1{en un año}other{en {amount} años}}",
+  "inYears": "{amount,plural, =1{dans un an}other{dans {amount} ans}}",
   "@inYears": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "secondString": "{amount,plural, =0{cero segundos}=1{un segundo}other{{amount} segundos}}",
+  "secondString": "{amount,plural, =0{zéro seconde}=1{une seconde}other{{amount} secondes}}",
   "@secondString": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "minuteString": "{amount,plural, =0{cero minutos}=1{un minuto}other{{amount} minutos}}",
+  "minuteString": "{amount,plural, =0{zéro minute}=1{une minute}other{{amount} minutes}}",
   "@minuteString": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "hourString": "{amount,plural, =0{cero horas}=1{una hora}other{{amount} horas}}",
+  "hourString": "{amount,plural, =0{zéro heure}=1{une heure}other{{amount} heures}}",
   "@hourString": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "dayString": "{amount,plural, =0{cero días}=1{un día}other{{amount} días}}",
+  "dayString": "{amount,plural, =0{zéro jour}=1{un jour}other{{amount} jours}}",
   "@dayString": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "weekString": "{amount,plural, =0{cero semanas}=1{una semana}other{{amount} semanas}}",
+  "weekString": "{amount,plural, =0{zéro semaine}=1{une semaine}other{{amount} semaines}}",
   "@weekString": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "monthString": "{amount,plural, =0{cero meses}=1{un mes}other{{amount} meses}}",
+  "monthString": "{amount,plural, =0{zéro mois}=1{un mois}other{{amount} mois}}",
   "@monthString": {
     "type": "text",
     "placeholders": {
       "amount": {}
     }
   },
-  "yearString": "{amount,plural, =0{cero años}=1{un año}other{{amount} años}}",
+  "yearString": "{amount,plural, =0{zéro an}=1{un an}other{{amount} ans}}",
   "@yearString": {
     "type": "text",
     "placeholders": {

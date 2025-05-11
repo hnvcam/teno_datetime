@@ -123,3 +123,9 @@ await ensureLocaleInit('es'); // replace with desired locale name or leave it em
 Different from JS, Dart [DateTime] and [Duration] have provided many useful methods for working with.
 Moreover with its powerful extension mechanism, I think we're better to utilize that instead of introducing
 another data type. That's why this lib exists.
+
+
+## Command to generate:
+```shell
+dart run intl_translation:generate_from_arb --output-dir=lib/generated lib/src/localization.dart lib/l10n/*.arb
+```
