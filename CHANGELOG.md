@@ -1,3 +1,6 @@
+## 1.1.1
+- Fix `addUnit` days/weeks drifting wall-clock time across DST transitions. Days and weeks now use calendar-based addition instead of fixed 24-hour durations.
+
 ## 1.1.0
 - Require Dart SDK ^3.5.0.
 - Pin dependency versions (replace `any` constraints with proper `^` pins).

@@ -143,6 +143,10 @@ extension StartOrEndOfTime on DateTime {
 
 extension Adding on DateTime {
   /// This is a convenience usage of [DateTime.add]([Duration])
+  ///
+  /// Days and weeks use calendar-based addition (preserving wall-clock time
+  /// across DST transitions). Hours, minutes, seconds use duration-based
+  /// addition (absolute time).
   DateTime addUnit(
       {int microseconds = 0,
       int milliseconds = 0,
@@ -151,13 +155,22 @@ extension Adding on DateTime {
       int hours = 0,
       int days = 0,
       int weeks = 0}) {
+    // Calendar-based addition for days/weeks to preserve wall-clock time
+    var result = this;
+    final totalDays = days + weeks * 7;
+    if (totalDays != 0) {
+      result = result.copyWith(day: result.day + totalDays);
+    }
+    // Duration-based addition for sub-day units (absolute time)
     final duration = Duration(
         microseconds: microseconds,
         milliseconds: milliseconds,
         seconds: seconds,
         minutes: minutes,
-        hours: hours,
-        days: days + weeks * 7);
-    return add(duration);
+        hours: hours);
+    if (duration != Duration.zero) {
+      result = result.add(duration);
+    }
+    return result;
   }
 }

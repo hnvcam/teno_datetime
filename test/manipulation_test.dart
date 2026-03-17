@@ -410,26 +410,36 @@ void main() {
     test('Adding for 1 second is correct', () {
       expect(time.addUnit(seconds: 1).difference(time), Duration(seconds: 1));
     });
+    test('Adding for 1 day preserves wall-clock time', () {
+      final result = time.addUnit(days: 1);
+      expect(result, DateTime(2023, 10, 31, 10, 34, 5, 123, 768));
+    });
     test('Adding for 1 days 2 minutes is correct', () {
-      expect(time.addUnit(days: 1, minutes: 2).difference(time),
-          Duration(days: 1, minutes: 2));
+      final result = time.addUnit(days: 1, minutes: 2);
+      expect(result, DateTime(2023, 10, 31, 10, 36, 5, 123, 768));
     });
     test('Adding for 1 week 2 microseconds is correct', () {
-      expect(time.addUnit(weeks: 1, microseconds: 2).difference(time),
-          Duration(days: 7, microseconds: 2));
+      final result = time.addUnit(weeks: 1, microseconds: 2);
+      expect(result, DateTime(2023, 11, 6, 10, 34, 5, 123, 770));
     });
     test('Subtracting with negative values', () {
-      expect(time.addUnit(days: -1).difference(time), Duration(days: -1));
+      final result = time.addUnit(days: -1);
+      expect(result, DateTime(2023, 10, 29, 10, 34, 5, 123, 768));
     });
     test('Subtracting weeks with negative values', () {
-      expect(time.addUnit(weeks: -2).difference(time), Duration(days: -14));
+      final result = time.addUnit(weeks: -2);
+      expect(result, DateTime(2023, 10, 16, 10, 34, 5, 123, 768));
     });
     test('Adding zero returns same time', () {
       expect(time.addUnit(), time);
     });
     test('Combining positive and negative values', () {
-      expect(time.addUnit(days: 1, hours: -2).difference(time),
-          Duration(days: 1, hours: -2));
+      final result = time.addUnit(days: 1, hours: -2);
+      expect(result, DateTime(2023, 10, 31, 8, 34, 5, 123, 768));
+    });
+    test('Adding days across month boundary', () {
+      final result = time.addUnit(days: 5);
+      expect(result, DateTime(2023, 11, 4, 10, 34, 5, 123, 768));
     });
   });
 }

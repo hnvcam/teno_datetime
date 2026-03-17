@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Dart
-        uses: dart-lang/setup-dart@v1
+        uses: dart-lang/setup-dart@v2
 
       - name: Install dependencies
         run: dart pub get
@@ -26,7 +26,7 @@ jobs:
           dart pub global run coverage:format_coverage --report-on=./lib --lcov --in=./coverage/reports --out=coverage/lcov.info
 
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v5
         with:
           file: coverage/lcov.info
           fail_ci_if_error: true
