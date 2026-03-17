@@ -1,12 +1,16 @@
 import 'package:teno_datetime/teno_datetime.dart';
 import 'package:test/test.dart';
 
-main() {
+void main() {
   group('isLeapYear', () {
     final testData = [
       (time: DateTime(2013, 1, 1), expected: false),
       (time: DateTime(2012, 12, 1), expected: true),
-      (time: DateTime(2024, 1, 1), expected: true)
+      (time: DateTime(2024, 1, 1), expected: true),
+      (time: DateTime(1900, 1, 1), expected: false),
+      (time: DateTime(2000, 1, 1), expected: true),
+      (time: DateTime(2100, 1, 1), expected: false),
+      (time: DateTime(2400, 1, 1), expected: true),
     ];
 
     for (var data in testData) {
@@ -22,6 +26,24 @@ main() {
         a: DateTime(2023, 11, 08, 10, 23, 0, 0, 0),
         b: DateTime(2023, 11, 08, 10, 23, 57, 12, 5),
         unit: Unit.microsecond,
+        expected: false
+      ),
+      (
+        a: DateTime(2023, 11, 08, 10, 23, 0, 0, 5),
+        b: DateTime(2023, 11, 08, 10, 23, 0, 0, 5),
+        unit: Unit.microsecond,
+        expected: true
+      ),
+      (
+        a: DateTime(2023, 11, 08, 10, 23, 0, 100, 0),
+        b: DateTime(2023, 11, 08, 10, 23, 0, 100, 5),
+        unit: Unit.millisecond,
+        expected: true
+      ),
+      (
+        a: DateTime(2023, 11, 08, 10, 23, 0, 100, 0),
+        b: DateTime(2023, 11, 08, 10, 23, 0, 200, 0),
+        unit: Unit.millisecond,
         expected: false
       ),
       (
@@ -55,11 +77,41 @@ main() {
         expected: false
       ),
       (
+        a: DateTime(2023, 11, 06),
+        b: DateTime(2023, 11, 10),
+        unit: Unit.week,
+        expected: true
+      ),
+      (
+        a: DateTime(2023, 11, 05),
+        b: DateTime(2023, 11, 06),
+        unit: Unit.week,
+        expected: false
+      ),
+      (
+        a: DateTime(2023, 11, 01),
+        b: DateTime(2023, 11, 30),
+        unit: Unit.month,
+        expected: true
+      ),
+      (
+        a: DateTime(2023, 11, 30),
+        b: DateTime(2023, 12, 01),
+        unit: Unit.month,
+        expected: false
+      ),
+      (
         a: DateTime(2023, 11, 08, 10, 23, 0, 0, 0),
         b: DateTime(2023, 11, 08, 10, 23, 57, 12, 5),
         unit: Unit.year,
         expected: true
-      )
+      ),
+      (
+        a: DateTime(2023, 12, 31),
+        b: DateTime(2024, 1, 1),
+        unit: Unit.year,
+        expected: false
+      ),
     ];
 
     for (var data in testData) {
@@ -182,38 +234,144 @@ main() {
     }
   });
 
-  test("isSameOrBeforeUnit", () {
+  group('isSameOrBeforeUnit', () {
     final time = DateTime(2023, 11, 08, 20, 10, 20, 123, 789);
-    expect(
-        time.isSameOrBeforeUnit(DateTime(2023, 11, 08), unit: Unit.day), true);
+
+    test('same day returns true', () {
+      expect(
+          time.isSameOrBeforeUnit(DateTime(2023, 11, 08), unit: Unit.day),
+          true);
+    });
+
+    test('before by microsecond returns true', () {
+      expect(
+          time.isSameOrBeforeUnit(DateTime(2023, 11, 08, 20, 10, 20, 123, 790)),
+          true);
+    });
+
+    test('after by microsecond returns false', () {
+      expect(
+          time.isSameOrBeforeUnit(DateTime(2023, 11, 08, 20, 10, 20, 123, 788)),
+          false);
+    });
+
+    test('before by month returns true', () {
+      expect(
+          time.isSameOrBeforeUnit(DateTime(2023, 12, 01), unit: Unit.month),
+          true);
+    });
   });
 
-  test("isSameOrAfterUnit", () {
+  group('isSameOrAfterUnit', () {
     final time = DateTime(2023, 11, 08, 20, 10, 20, 123, 789);
-    expect(
-        time.isSameOrAfterUnit(DateTime(2023, 11, 08), unit: Unit.day), true);
+
+    test('same day returns true', () {
+      expect(
+          time.isSameOrAfterUnit(DateTime(2023, 11, 08), unit: Unit.day),
+          true);
+    });
+
+    test('after by microsecond returns true', () {
+      expect(
+          time.isSameOrAfterUnit(DateTime(2023, 11, 08, 20, 10, 20, 123, 788)),
+          true);
+    });
+
+    test('before by microsecond returns false', () {
+      expect(
+          time.isSameOrAfterUnit(DateTime(2023, 11, 08, 20, 10, 20, 123, 790)),
+          false);
+    });
+
+    test('after by month returns true', () {
+      expect(
+          time.isSameOrAfterUnit(DateTime(2023, 10, 01), unit: Unit.month),
+          true);
+    });
   });
 
-  test("isInRange", () {
+  group('isInRange', () {
     final time = DateTime(2023, 11, 08, 20, 10, 20, 123, 789);
-    expect(time.isInRange(DateTime(2023, 11, 08), DateTime(2023, 11, 08, 19)),
-        false);
-    expect(
-        time.isInRange(DateTime(2023, 11, 08), DateTime(2023, 11, 08, 19),
-            unit: Unit.day),
-        true);
+
+    test('outside range by microsecond returns false', () {
+      expect(
+          time.isInRange(
+              DateTime(2023, 11, 08), DateTime(2023, 11, 08, 19)),
+          false);
+    });
+
+    test('inside range by day returns true', () {
+      expect(
+          time.isInRange(
+              DateTime(2023, 11, 08), DateTime(2023, 11, 08, 19),
+              unit: Unit.day),
+          true);
+    });
+
+    test('on start boundary returns true (inclusive)', () {
+      expect(
+          time.isInRange(time, DateTime(2023, 11, 09)),
+          true);
+    });
+
+    test('on end boundary returns true (inclusive)', () {
+      expect(
+          time.isInRange(DateTime(2023, 11, 07), time),
+          true);
+    });
+
+    test('outside range before start returns false', () {
+      expect(
+          time.isInRange(
+              DateTime(2023, 11, 09), DateTime(2023, 11, 10)),
+          false);
+    });
+
+    test('range spanning months by month unit', () {
+      expect(
+          time.isInRange(
+              DateTime(2023, 10, 01), DateTime(2023, 12, 01),
+              unit: Unit.month),
+          true);
+    });
   });
 
-  test("isInRangeExclusive", () {
+  group('isInRangeExclusive', () {
     final time = DateTime(2023, 11, 08, 20, 10, 20, 123, 789);
-    expect(
-        time.isInRangeExclusive(
-            DateTime(2023, 11, 08), DateTime(2023, 11, 08, 21)),
-        true);
-    expect(
-        time.isInRangeExclusive(time, DateTime(2023, 11, 08, 21),
-            unit: Unit.day),
-        false);
+
+    test('strictly inside range returns true', () {
+      expect(
+          time.isInRangeExclusive(
+              DateTime(2023, 11, 08), DateTime(2023, 11, 08, 21)),
+          true);
+    });
+
+    test('on start boundary returns false (exclusive)', () {
+      expect(
+          time.isInRangeExclusive(time, DateTime(2023, 11, 08, 21)),
+          false);
+    });
+
+    test('on end boundary returns false (exclusive)', () {
+      expect(
+          time.isInRangeExclusive(DateTime(2023, 11, 08), time),
+          false);
+    });
+
+    test('same day exclusive by day returns false', () {
+      expect(
+          time.isInRangeExclusive(time, DateTime(2023, 11, 08, 21),
+              unit: Unit.day),
+          false);
+    });
+
+    test('between different days returns true', () {
+      expect(
+          time.isInRangeExclusive(
+              DateTime(2023, 11, 07), DateTime(2023, 11, 09),
+              unit: Unit.day),
+          true);
+    });
   });
 
   group('MinMax', () {

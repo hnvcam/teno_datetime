@@ -2,7 +2,11 @@ import 'package:intl/intl.dart';
 import 'package:teno_datetime/teno_datetime.dart';
 import 'package:test/test.dart';
 
-main() {
+void main() {
+  setUp(() async {
+    await ensureLocaleInit('en');
+  });
+
   group('timeAgo', () {
     final testData = [
       (
@@ -188,6 +192,16 @@ main() {
         expect(data.time.format(data.format), data.expected);
       });
     }
+
+    test('format with locale parameter', () async {
+      await ensureLocaleInit('fr');
+      final time = DateTime(2023, 11, 08, 11, 0, 0);
+      final frMonth = time.format(DateFormat.ABBR_MONTH, locale: 'fr');
+      expect(frMonth, isNot(equals('Nov')));
+      // Verify English locale still works as expected
+      expect(time.format(DateFormat.ABBR_MONTH, locale: 'en'), 'Nov');
+      await ensureLocaleInit('en');
+    });
   });
 
   group('toDurationString', () {
@@ -291,5 +305,15 @@ main() {
         expect(data.duration.toDurationString(data.unit), data.expected);
       });
     }
+
+    test('toDurationString throws for Unit.microsecond', () {
+      expect(() => Duration(seconds: 1).toDurationString(Unit.microsecond),
+          throwsA(isA<UnsupportedError>()));
+    });
+
+    test('toDurationString throws for Unit.millisecond', () {
+      expect(() => Duration(seconds: 1).toDurationString(Unit.millisecond),
+          throwsA(isA<UnsupportedError>()));
+    });
   });
 }

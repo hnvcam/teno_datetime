@@ -1,3 +1,9 @@
+## 1.1.0
+- Require Dart SDK ^3.5.0.
+- Pin dependency versions (replace `any` constraints with proper `^` pins).
+- Upgrade lints to ^5.0.0.
+- Improve test coverage across all modules (172 → 229 tests).
+
 ## 1.0.9
 - Add French translations.
 ## 1.0.8

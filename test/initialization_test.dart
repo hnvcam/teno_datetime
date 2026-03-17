@@ -1,7 +1,7 @@
 import 'package:teno_datetime/teno_datetime.dart';
 import 'package:test/test.dart';
 
-main() {
+void main() {
   final testData = [
     (locale: 'en', firstDay: DateTime.sunday),
     (locale: 'en_US', firstDay: DateTime.sunday),
@@ -32,5 +32,30 @@ main() {
         DateTime.now().addUnit(days: 1, seconds: 1).timeIn, 'trong ngày mai');
     await ensureLocaleInit('en');
     expect(DateTime.now().addUnit(days: 1, seconds: 1).timeIn, 'in a day');
+  });
+
+  group('firstDayOfWeek setter', () {
+    test('can set to any valid day', () {
+      firstDayOfWeek = DateTime.wednesday;
+      expect(firstDayOfWeek, DateTime.wednesday);
+      firstDayOfWeek = DateTime.saturday;
+      expect(firstDayOfWeek, DateTime.saturday);
+      firstDayOfWeek = DateTime.monday;
+      expect(firstDayOfWeek, DateTime.monday);
+    });
+
+    test('default is Monday before ensureLocaleInit', () {
+      firstDayOfWeek = DateTime.monday;
+      expect(firstDayOfWeek, DateTime.monday);
+    });
+
+    test('ensureLocaleInit overrides manual setting', () async {
+      firstDayOfWeek = DateTime.wednesday;
+      expect(firstDayOfWeek, DateTime.wednesday);
+      await ensureLocaleInit('en');
+      expect(firstDayOfWeek, DateTime.sunday);
+      // Reset
+      firstDayOfWeek = DateTime.monday;
+    });
   });
 }

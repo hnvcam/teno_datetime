@@ -1,7 +1,7 @@
 import 'package:teno_datetime/teno_datetime.dart';
 import 'package:test/test.dart';
 
-main() {
+void main() {
   group('diff', () {
     final testData = [
       (
@@ -21,7 +21,43 @@ main() {
         b: DateTime(2023, 11, 1, 03, 02, 11),
         unit: Unit.week,
         expected: 0
-      )
+      ),
+      (
+        a: DateTime(2023, 11, 7, 11, 06, 20),
+        b: DateTime(2023, 11, 7, 11, 06, 10),
+        unit: Unit.second,
+        expected: 10
+      ),
+      (
+        a: DateTime(2023, 11, 7, 11, 06, 20),
+        b: DateTime(2023, 11, 7, 10, 06, 20),
+        unit: Unit.minute,
+        expected: 60
+      ),
+      (
+        a: DateTime(2023, 11, 7, 11, 06, 20),
+        b: DateTime(2023, 11, 7, 10, 06, 20),
+        unit: Unit.hour,
+        expected: 1
+      ),
+      (
+        a: DateTime(2023, 11, 7),
+        b: DateTime(2023, 11, 7),
+        unit: Unit.millisecond,
+        expected: 0
+      ),
+      (
+        a: DateTime(2024, 1, 1),
+        b: DateTime(2023, 1, 1),
+        unit: Unit.year,
+        expected: 1
+      ),
+      (
+        a: DateTime(2023, 12, 1),
+        b: DateTime(2023, 1, 1),
+        unit: Unit.month,
+        expected: 11
+      ),
     ];
 
     for (var data in testData) {
@@ -329,6 +365,46 @@ main() {
     });
   });
 
+  group('startOf month and year', () {
+    test('Start of month', () {
+      expect(
+          DateTime(2023, 11, 15, 10, 30, 45, 123, 789).startOf(Unit.month),
+          DateTime(2023, 11, 1));
+    });
+
+    test('Start of month on first day', () {
+      expect(
+          DateTime(2023, 11, 1, 10, 30).startOf(Unit.month),
+          DateTime(2023, 11, 1));
+    });
+
+    test('Start of year', () {
+      expect(
+          DateTime(2023, 6, 15, 10, 30, 45, 123, 789).startOf(Unit.year),
+          DateTime(2023, 1, 1));
+    });
+
+    test('Start of year on Jan 1', () {
+      expect(
+          DateTime(2023, 1, 1, 12, 0).startOf(Unit.year),
+          DateTime(2023, 1, 1));
+    });
+  });
+
+  group('endOf year', () {
+    test('End of year', () {
+      expect(
+          DateTime(2023, 6, 15, 10, 30).endOf(Unit.year),
+          DateTime(2023, 12, 31, 23, 59, 59, 999, 999));
+    });
+
+    test('End of year on Dec 31', () {
+      expect(
+          DateTime(2023, 12, 31, 10, 30).endOf(Unit.year),
+          DateTime(2023, 12, 31, 23, 59, 59, 999, 999));
+    });
+  });
+
   group('addUnit', () {
     final time = DateTime(2023, 10, 30, 10, 34, 5, 123, 768);
     test('Adding for 1 second is correct', () {
@@ -341,6 +417,19 @@ main() {
     test('Adding for 1 week 2 microseconds is correct', () {
       expect(time.addUnit(weeks: 1, microseconds: 2).difference(time),
           Duration(days: 7, microseconds: 2));
+    });
+    test('Subtracting with negative values', () {
+      expect(time.addUnit(days: -1).difference(time), Duration(days: -1));
+    });
+    test('Subtracting weeks with negative values', () {
+      expect(time.addUnit(weeks: -2).difference(time), Duration(days: -14));
+    });
+    test('Adding zero returns same time', () {
+      expect(time.addUnit(), time);
+    });
+    test('Combining positive and negative values', () {
+      expect(time.addUnit(days: 1, hours: -2).difference(time),
+          Duration(days: 1, hours: -2));
     });
   });
 }

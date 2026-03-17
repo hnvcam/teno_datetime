@@ -1,7 +1,7 @@
 import 'package:teno_datetime/teno_datetime.dart';
 import 'package:test/test.dart';
 
-main() {
+void main() {
   final testData = [
     (locale: 'en', in2Days: 'in 2 days', inAMonth: 'in a month', threeWeeksAgo: '3 weeks ago'),
     (locale: 'es', in2Days: 'en 2 días', inAMonth: 'en un mes', threeWeeksAgo: 'hace 3 semanas'),

@@ -1,5 +1,5 @@
-A set of extensions for DateTime for convenience usage.
-Inspired by Jiffy and MomentJS
+A set of DateTime extensions for convenient usage.
+Inspired by Jiffy and Moment.js.
 
 [![Build Status](https://github.com/hnvcam/teno_datetime/actions/workflows/ci.yaml/badge.svg)](https://github.com/hnvcam/teno_datetime)
 [![codecov](https://codecov.io/gh/hnvcam/teno_datetime/graph/badge.svg?token=FCRWMFYD3O)](https://codecov.io/gh/hnvcam/teno_datetime)
@@ -9,62 +9,74 @@ Inspired by Jiffy and MomentJS
 ## Features
 
 #### DateTime.timeAgo
-Display the time ago string for current DateTime.
-For ex:
+Display a human-readable string for a past DateTime.
 ```dart
 final twoMinutesAgo = DateTime.now().subtract(Duration(minutes: 2));
 print(twoMinutesAgo.timeAgo);  // 2 minutes ago
 ```
 #### DateTime.timeIn
-Display the time in string for current DateTime.
-For ex:
+Display a human-readable string for a future DateTime.
 ```dart
 final inAnHour = DateTime.now().add(Duration(hours: 1, minutes: 1));
 print(inAnHour.timeIn);  // in an hour
 ```
 #### DateTime.fromNow
-A more convenient way of combining above two
+A convenient combination of `timeAgo` and `timeIn` — automatically picks the right one based on whether the DateTime is in the past or future.
 
 #### DateTime.format
-A convenient way of using DateTimeFormat
+A convenient way of using `DateFormat`.
 ```dart
 final time = DateTime(2023, 11, 08, 11, 0, 0, 123, 678);
 print(time.format(DateFormat.YEAR_MONTH_DAY));   // November 8, 2023
 ```
 #### Duration.to(Unit)
-Conversion to specified Unit.
+Convert a Duration to the specified Unit.
+
+#### Duration.toDurationString
+Display a human-readable string for a Duration. Automatically picks the most appropriate unit, or you can specify one explicitly.
+```dart
+print(Duration(minutes: 4).toDurationString());       // 4 minutes
+print(Duration(days: 10).toDurationString());          // a week
+print(Duration(days: 10).toDurationString(Unit.day));  // 10 days
+```
 
 #### DateTime.diff
-Find difference between two DateTimes by a Unit
+Find the difference between two DateTimes by a Unit.
 ```dart
 final a = DateTime(2023, 11, 7);
 final b = DateTime(2023, 11, 1);
-print(a.diff(b, unit: Unit.day);    // 6
+print(a.diff(b, unit: Unit.day));    // 6
 ```
 #### DateTime.startOf
-Get the start of time instance of current DateTime
+Get the start of a time unit for the current DateTime.
 ```dart
 final time = DateTime(2023, 11, 7, 22, 44, 55, 123, 789);
 print(time.startOf(Unit.week));   // 2023-11-06 00:00:00.000
 ```
-Override weekStart on call (by default it takes value of firstDayOfWeek)
+Override weekStart on call (by default it takes the value of `firstDayOfWeek`):
 ```dart
 final time = DateTime(2023, 11, 13, 10, 37, 05, 678, 123);
 print(time.startOf(Unit.week, DateTime.sunday)); // 2023-11-12 00:00:00.000
 ```
 #### DateTime.endOf
-Get the end of time instance of current DateTime
+Get the end of a time unit for the current DateTime.
 ```dart
-// manually set the first day of week
+// Manually set the first day of the week
 firstDayOfWeek = DateTime.saturday;
 final time = DateTime(2023, 11, 8);
 print(time.endOf(Unit.week));  // 2023-11-10 23:59:59.999999
 ```
 #### DateTime.addUnit
-Convenient way of using DateTime.add(Duration)
+A convenient way of using `DateTime.add(Duration)`.
 ```dart
 final time = DateTime(2023, 11, 08, 10, 34, 30, 123, 789);
 print(time.addUnit(days: 1));   // 2023-11-09 10:34:30.123789
+```
+#### DateTime.isLeapYear
+Check if the current year is a leap year.
+```dart
+print(DateTime(2024, 1, 1).isLeapYear);  // true
+print(DateTime(1900, 1, 1).isLeapYear);  // false
 ```
 #### DateTime.isSameUnit
 ```dart
@@ -76,7 +88,7 @@ print(a.isSameUnit(b, unit: Unit.day));   // true
 ```dart
 final a = DateTime(2023, 11, 08, 10, 23, 0, 0, 0);
 final b = DateTime(2023, 11, 08, 10, 23, 57, 12, 5);
-// default to microsecond
+// defaults to microsecond
 print(a.isBeforeUnit(b)); // true
 ```
 #### DateTime.isAfterUnit
@@ -96,36 +108,50 @@ final time = DateTime(2023, 11, 08, 20, 10, 20, 123, 789);
 print(time.isSameOrAfterUnit(DateTime(2023, 11, 08), unit: Unit.day));    // true
 ```
 #### DateTime.isInRange
+Check if a DateTime falls within a range (inclusive).
 ```dart
 final time = DateTime(2023, 11, 08, 20, 10, 20, 123, 789);
-print(time.isInRange(DateTime(2023, 11, 08), DateTime(2023, 11, 08, 19));  // false
+print(time.isInRange(DateTime(2023, 11, 08), DateTime(2023, 11, 08, 19)));  // false
 ```
 #### DateTime.isInRangeExclusive
+Check if a DateTime falls within a range (exclusive).
 ```dart
 final time = DateTime(2023, 11, 08, 20, 10, 20, 123, 789);
-print(time.isInRangeExclusive(DateTime(2023, 11, 08), DateTime(2023, 11, 08, 21)); // true
+print(time.isInRangeExclusive(DateTime(2023, 11, 08), DateTime(2023, 11, 08, 21))); // true
+```
+#### DateTime.orAfterUnit / DateTime.orBeforeUnit
+Min/max helpers that return the earlier or later of two DateTimes.
+```dart
+final a = DateTime(2023, 11, 10, 19, 49, 53);
+final b = DateTime(2023, 11, 10, 19, 50, 0);
+print(a.orAfterUnit(b));  // a (the earlier one, equivalent to min)
+print(a.orBeforeUnit(b)); // b (the later one, equivalent to max)
 ```
 
 ## Getting started
 
-Adding the library to your pubspec.yaml file:
+Requires Dart SDK ^3.5.0.
+
+Add the library to your `pubspec.yaml`:
 ```shell
 dart pub add teno_datetime
 ```
 
-To make sure that localization works correctly, make sure you call this after startup or changing language:
+To ensure localization works correctly, call this after startup or when changing the language:
 ```dart
-await ensureLocaleInit('es'); // replace with desired locale name or leave it empty to get value from Intl.systemLocale
+await ensureLocaleInit('es'); // replace with the desired locale, or omit to use Intl.systemLocale
 ```
+
+Supported locales: en, en_US, de, es, fr, pt, vi, ar.
 
 
 ## Additional information
-Different from JS, Dart [DateTime] and [Duration] have provided many useful methods for working with.
-Moreover with its powerful extension mechanism, I think we're better to utilize that instead of introducing
-another data type. That's why this lib exists.
+Unlike JavaScript, Dart's `DateTime` and `Duration` already provide many useful methods.
+Combined with Dart's extension mechanism, there is no need to introduce a new data type — this library builds directly on top of the existing types.
 
 
-## Command to generate:
+## Generating localization files
+For contributors — after editing `.arb` files in `lib/l10n/`, regenerate the message files:
 ```shell
 dart run intl_translation:generate_from_arb --output-dir=lib/generated lib/src/localization.dart lib/l10n/*.arb
 ```
