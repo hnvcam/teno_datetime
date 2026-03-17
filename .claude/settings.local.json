@@ -8,7 +8,8 @@
       "Bash(cd:*)",
       "WebFetch(domain:pub.dev)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(gh release:*)"
     ]
   }
 }
