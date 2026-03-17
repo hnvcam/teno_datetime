@@ -7,7 +7,8 @@
       "Bash(dart analyze:*)",
       "Bash(cd:*)",
       "WebFetch(domain:pub.dev)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:github.com)"
     ]
   }
 }
